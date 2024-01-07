@@ -1,5 +1,101 @@
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    
+    /* Parte General de la Web*/
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+    
+    /* Estilo del Header */
+    header {
+        background-color: #c97678;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        margin-bottom: 50px;
+    }
+
+    #btnDark {
+        color: #FFFFFF !important;
+        font-size: 16px;
+        text-shadow: 1px 1px 0px #696164;
+        padding: 5px 15px;
+        border-radius: 50px;
+        border: 2px solid #000000;
+        background: #454545;
+        background: linear-gradient(to top, #454545, #fffefea3);
+      }
+      #btnDark:hover {
+        color: #FFFFFF !important;
+        background: #FFFAFA;
+        background: linear-gradient(to top, #FFFAFA, #000000);
+      }
+
+    h1 {
+        font-size: 2em;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+
+
+.info-box {
+    display: flex; /* Afecta a los hijos de .info-box */
+    justify-content: space-between;
+    margin: 40px;
+  }
+  
+  .info-box div {
+    background-color: rgb(239, 239, 240);
+    border-radius: 30px; 
+    border: 0px;
+    flex: 1; /* Hago que los elementos ocupen el espacio disponible*/
+    margin: 10px;
+    aspect-ratio: 16/9; /* me asegura que cada elemento tenga la relación de aspecto 16/9 */
+  }
+  
+/* Estilo del Main */
+
+  h2 {
+    font-size: 1.5em;
+    text-align: center;
+    }
+
+ 
+  .icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 50px;
+   }
+   
+   .icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: contents; /* ¡¡¡ !!!!  Me permite que los elementos li se comporten como si fueran hijos directos de .icons . Si no es por esta propiedad se me desorganiza el grid-template*/
+   }
+   
+   .icons li {
+    background: #e0d5d5; /* He añadido este color axuliar para el caso de que las imágenes no se carguen correctamente, a cambiar a gusto del diseño final */
+    display: flex;
+    justify-content: center; /* Centro horizontalmente */
+    align-items: center; /* Centro verticalmente */
+    aspect-ratio: 1 / 1; /* Me aseguro que cada elemento es cuadrado si no tiene una imagen insertada*/
+    min-width: 100px; /* Para que los elementos no se vuelvan demasiado pequeño */
+    border-radius: 10px;
+    overflow: hidden; /* Para que la imagen de cada aparato quede con los bordes de las cajas */
+   }
+   
+   .icons img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+   
+  
