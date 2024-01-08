@@ -22,22 +22,6 @@
         margin-bottom: 50px;
     }
 
-    #btnDark {
-        color: #FFFFFF !important;
-        font-size: 16px;
-        text-shadow: 1px 1px 0px #696164;
-        padding: 5px 15px;
-        border-radius: 50px;
-        border: 2px solid #000000;
-        background: #454545;
-        background: linear-gradient(to top, #454545, #fffefea3);
-      }
-      #btnDark:hover {
-        color: #FFFFFF !important;
-        background: #FFFAFA;
-        background: linear-gradient(to top, #FFFAFA, #000000);
-      }
-
     h1 {
         font-size: 2em;
         margin-top: 100px;
@@ -53,7 +37,7 @@
   
   .info-box div {
     background-color: rgb(239, 239, 240);
-    border-radius: 30px; 
+    border-radius: 5px; 
     border: 0px;
     flex: 1; /* Hago que los elementos ocupen el espacio disponible*/
     margin: 10px;
@@ -79,7 +63,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: contents; /* ¡¡¡ !!!!  Me permite que los elementos li se comporten como si fueran hijos directos de .icons . Si no es por esta propiedad se me desorganiza el grid-template*/
    }
    
    .icons li {
