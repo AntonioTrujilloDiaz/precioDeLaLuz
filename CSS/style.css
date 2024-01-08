@@ -1,39 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'SodaFountain';
+  src: url('FONTS/Soda\ Fountain\ \(Free\ Typeface\)/SodaFountain-Regular.otf')format('opentype');
+}
+
+@font-face {
+  font-family: 'RetroKing';
+  src: url('FONTS/Retroking/Retroking.ttf')format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
-  
-  
+  }  
+
   /* Parte General de la Web*/
-  body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
-      max-width: 1000px;
-  }
+body {
+    background-image: url(./IMAGES/BG/LIGHT/BG_PrecioLuz_Light_Movil_720x1280-03.jpg);
+    background-size: contain; /* Uso de cover o contain para adaptar la imagen */
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 1000px;
+}
   
   /* Estilo del Header */
-  header {
-      /* background-color: #c97678; */
-      color: #fff;
-      text-align: center;
-      /* padding: 20px 0; */
-      margin-bottom: 10px;
-  }
+header {
+  /* background-color: #c97678; */
+  color: #fff;
+  /*text-align: center;*/
+  /* padding: 20px 0; */
+  margin-bottom: 10px;
+}
 
-  h1 {
-      font-size: 2em;
-      margin-top: 10px;
-      margin-bottom: 10px;
-  }
+.logoMode {
+  display: flex;
+  justify-content: space-between;
+}
 
+h1 {
+  text-align: center;
+  color: #f5a341;
+  font-family:'RetroKing', cursive;
+  font-size: 3em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .info-box {
+  font-family: 'SodaFountain', sans-serif;
+  font-size: 1.5em;
   display: flex; /* Afecta a los hijos de .info-box */
   justify-content: space-between;
   margin: 0 40px;
+  text-align: center;
 }
 
 .info-box div {
@@ -45,10 +70,15 @@
   aspect-ratio: 16/9; /* me asegura que cada elemento tenga la relación de aspecto 16/9 */
 }
 
+#btnLight, #btnDark {
+  font-family: 'Dancing Script', cursive;
+}
+
 /* Estilo del Main */
 
 h2 {
-  font-size: 1.5em;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
   text-align: center;
   }
 
@@ -83,6 +113,8 @@ h2 {
  }
  
 .h3-consumo{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8em;
   text-align: center;
 }
  
