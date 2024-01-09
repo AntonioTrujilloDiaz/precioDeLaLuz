@@ -51,10 +51,12 @@ h1 {
   text-align: center;
   color: #f5a341;
   font-family:'RetroKing', cursive;
-  font-size: 3em;
+  font-size: 4em;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: 5px 5px 10px #603913;
 }
+
 #box1, #box2, #box3 {
   color: #f5a341;
   font-size: 3.5vw;
@@ -70,14 +72,21 @@ h1 {
 }
 
 .info-box div {
-  background-color: #ffffff;
+  background-color: #ffffffbe;
   border-radius: 5px; 
   border: 0px;
   flex: 1; /* Hago que los elementos ocupen el espacio disponible*/
   margin: 10px;
   aspect-ratio: 16/9; /* me asegura que cada elemento tenga la relación de aspecto 16/9 */
 }
-
+/* Añadido para el uso de un solo botón
+#btnDark {
+  font-family: 'Canter', sans-serif;
+  border-radius: 50px;
+  padding: 5px;
+  margin: 2%;
+}
+*/
 #btnLight, #btnDark {
   font-family: 'Dancing Script', cursive;
 }
