@@ -21,7 +21,9 @@
 
             <nav class="botonesModo">
                 <!-- <button id="btnLight">Light Mode</button> Solo necesitamos un botón por Modo -->
-                <button id="btnDark">Dark Mode</button>
+                <button id="btnDark">
+                    <img src="./IMAGES/ICONS/luna.png" alt="icono luna">
+                </button>
             </nav>
         </section>
 
@@ -53,38 +55,35 @@
                     <li id="appli-9"><button type="button"><img src="./IMAGES/ICONS/washing_machine_bn_light_icon.png" alt="Imagen del Electrodoméstico 9"></button></li>
                 </ul>
             </section>
+            <section class="consumo">
+                <h3 class="h3-consumo">Descubre su consumo por horas</h3>
+                
+                <div class="box-consumo">Consumo total de todos los electrodomesticos seleccionados
+                </div>
+            </section>
         </div>  
     
-        <section class="consumo">
-            <h3 class="h3-consumo">Descubre su consumo por horas</h3>
-            
-            <div class="box-consumo">Consumo total de todos los electrodomesticos seleccionados
+
+
+        <section class="container2">
+            <h3>Gráfica precio/h del día</h3>
+            <div id="miGraficaContainer">
+                <canvas id="miGrafica" class="chart-container" width="500" height="400"></canvas>
             </div>
+        
+            <div id="cajaEcoTips">
+                <h3>EcoTips</h3> 
+                <aside>
+                    <p></p>
+                </aside>
+            </div>
+        
         </section>
+
 
     </main>
     
-    <section class="container2">
-        
-        <div class="grafica">
-            <h3>Gráfica precio/h del día</h3>
-            <img src="gráfica.png" alt="Gráfica precio/h del día"> 
-        </div>
 
-        <!-- CONTENEDOR PARA LA GRÁFICA -->
-        <div id="miGraficaContainer">
-            <canvas id="miGrafica" class="chart-container" width="500" height="400"></canvas>
-        </div>
-
-        <div class="ecoTips">
-            <h3>ECO Tips</h3>            
-        </div>
-        
-    </section>
-
-    <section id="imagenCocina">
-        <img src="./IMAGES/BG/LIGHT/kitchen-06.svg">
-    </section>
 
     <footer>
 
