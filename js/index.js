@@ -33,3 +33,58 @@ function obtenerTramoHorario(hora) {
 
 setInterval(obtenerDatos, 5 * 60 * 1000);
 obtenerDatos();
+
+//IMPLEMENTACIÓN DE MI CÓDIGO, PARA QUE LO VEÁIS Y FUSIONÉIS O SAQUÉIS DE AQUÍ LO NECESARIO 
+function obtenerDatosHoraActual() {
+    const horaActual = new Date();
+    console.log(horaActual);
+  
+    const horaActualAPI = horaActual.getHours();
+  
+    fetch("https://bypass-cors-beta.vercel.app/?url=https://api.preciodelaluz.org/v1/prices/all?zone=PCB")
+      .then(response => response.json())
+      .then(data => {
+        const claveApiTramoHoraActual = (`${horaActualAPI}-${horaActualAPI + 1}`);
+        const tramoHoraActual = data.data[claveApiTramoHoraActual];
+  
+        if (tramoHoraActual) {
+          console.log(`Tramo de hora actual según la API: ${tramoHoraActual.hour}`);
+          console.log(`Precio: ${tramoHoraActual.price} ${tramoHoraActual.units}`);
+          console.log(`¿Barata?: ${tramoHoraActual["is-cheap"]}`);
+  
+          // PRECIO MÁS BAJO DEL DÍA
+          const preciosDelDia = Object.values(data.data).map(info => info.price);
+          const precioMasBajoDelDia = Math.min(...preciosDelDia);
+  
+          console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
+  
+          // TRAMO CORRESPONDIENTE AL PRECIO MÁS BAJO DEL DÍA
+          const tramoPrecioMasBajo = Object.keys(data.data).find(key => data.data[key].price === precioMasBajoDelDia);
+
+          console.log(`Tramo horario del precio más bajo: ${tramoPrecioMasBajo}`);
+
+          //PRECIO MÁS ALTO DEL DÍA
+          const precioMasAltoDelDia = Math.max(...preciosDelDia);
+
+          console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
+
+          //TRAMO HORARIO DEL PRECIO MÁS ALTO DEL DÍA
+          const tramoPrecioMasAlto = Object.keys(data.data).find(key => data.data[key].price === precioMasAltoDelDia);
+
+          console.log(`Tramo horario del precio alto: ${tramoPrecioMasAlto}`);  
+          
+          //PRECIO MEDIO DEL DÍA
+
+          const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
+          const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
+
+          console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
+  
+        } else {
+          console.log("No hay datos disponibles para el tramo de hora actual.");
+        }
+      })
+      .catch(error => console.error("Error al obtener datos:", error));
+  }
+  
+  obtenerDatosHoraActual();
