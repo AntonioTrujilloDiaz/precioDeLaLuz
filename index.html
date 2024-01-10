@@ -6,7 +6,11 @@
     <meta name="author" content="Antonio Trujillo Díaz, Rubén Muñoz Pareja, Daniel Moreno Acedo">
     <title>Proyecto Hack a Boss - El Precio de la Luz</title>
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style_grafica.css">
     <script defer src="./js/index.js"></script>
+    <script src="./js/grafica.js"></script>
+    <!-- Usamos esta librería concreta que testeada funciona bien, ya que las últimas versiones de librería podrían dar conflicto con navegadores. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3"></script>
 
 </head>
 
@@ -65,6 +69,11 @@
         <div class="grafica">
             <h3>Gráfica precio/h del día</h3>
             <img src="gráfica.png" alt="Gráfica precio/h del día"> 
+        </div>
+
+        <!-- CONTENEDOR PARA LA GRÁFICA -->
+        <div id="miGraficaContainer">
+            <canvas id="miGrafica" class="chart-container" width="500" height="400"></canvas>
         </div>
 
         <div class="ecoTips">
