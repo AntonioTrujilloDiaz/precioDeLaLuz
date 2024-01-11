@@ -25,51 +25,64 @@ function obtenerTramoHorario(hora) {
     return `${formatoInicio}-${formatoFin}`;
 }
 
+// Función para verificar si han pasado 5 minutos desde un tiempo dado
+const hanPasado5Minutos = (tiempoPrevio) => {
+    const tiempoActual = Date.now();
+    const diferenciaEnMilisegundos = tiempoActual - tiempoPrevio;
+    const minutosTranscurridos = diferenciaEnMilisegundos / (1000 * 60);
+
+    return minutosTranscurridos >= 5;
+};
+
+let datos = { data: {} }; // Inicializar datos con una estructura válida // Declarar datos fuera del bloque try
 
 const obtenerDatos = async () => {
     try {
         const horaActual = new Date();
         const horaActualEnHoras = horaActual.getHours() + horaActual.getMinutes() / 60;
-
-        // Con este ajuste aquí y la función de la línea 29 he conseguido que no de error al pasar al tramo horario 00:00-01:00, antes me saltaba el else con tramo horario 0-1
         const tramoHorario = obtenerTramoHorario(horaActualEnHoras);
 
-        const response = await fetch('https://bypass-cors-beta.vercel.app/?url=https://api.preciodelaluz.org/v1/prices/all?zone=PCB');
-        const datos = await response.json();
+        // Obtener datos del LocalStorage
+        const datosLocalStorage = JSON.parse(localStorage.getItem('datosPrecioLuz'));
 
-        precioActual = datos.data[tramoHorario];
-        
+        if (datosLocalStorage && datosLocalStorage.ultimaSolicitud && !hanPasado5Minutos(datosLocalStorage.ultimaSolicitud)) {
+            // Usar datos almacenados en el LocalStorage
+            precioActual = datosLocalStorage.datos[tramoHorario];
+            console.log("Usando datos del LocalStorage:", precioActual);
+            calcularCosteElectrodomesticos();
+        } else {
+
+            // Realizar nueva solicitud a la API
+            const response = await fetch('https://bypass-cors-beta.vercel.app/?url=https://api.preciodelaluz.org/v1/prices/all?zone=PCB');
+            const datos = await response.json();
+
+            // Actualizar datos en el LocalStorage
+            const nuevosDatosLocalStorage = {
+                ultimaSolicitud: Date.now(),
+                datos: datos.data
+            };
+            localStorage.setItem('datosPrecioLuz', JSON.stringify(nuevosDatosLocalStorage));
+
+            precioActual = datos.data[tramoHorario];
+            console.log("Obteniendo nuevos datos de la API:", precioActual);
+            calcularCosteElectrodomesticos();
+        }
         if (precioActual) {
             console.log(`Precio actual para el tramo horario ${tramoHorario}: ${precioActual.price} €/MWh`);
             calcularCosteElectrodomesticos();
-        // Ya he dejado implementado y funcionando tu JS de las Boxes, solo era cortar y pegar y cambiar dat.data por datos.data...Así llame a la variable del await para que se distinguiese del data del objeto de la API.
-          // PRECIO MÁS BAJO DEL DÍA
-          const preciosDelDia = Object.values(datos.data).map(info => info.price);
-          const precioMasBajoDelDia = Math.min(...preciosDelDia);
-  
-          console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
-  
-          // TRAMO CORRESPONDIENTE AL PRECIO MÁS BAJO DEL DÍA
-          const tramoPrecioMasBajo = Object.keys(datos.data).find(key => datos.data[key].price === precioMasBajoDelDia);
 
-          console.log(`Tramo horario del precio más bajo: ${tramoPrecioMasBajo}`);
+            // Obtener precios más bajo 
+            const preciosDelDia = Object.values(datosLocalStorage.datos).map(info => info.price);
 
-          //PRECIO MÁS ALTO DEL DÍA
-          const precioMasAltoDelDia = Math.max(...preciosDelDia);
+            const precioMasBajoDelDia = Math.min(...preciosDelDia);
+            const precioMasAltoDelDia = Math.max(...preciosDelDia);
+            const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
+            const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
+            
 
-          console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
-
-          //TRAMO HORARIO DEL PRECIO MÁS ALTO DEL DÍA
-          const tramoPrecioMasAlto = Object.keys(datos.data).find(key => datos.data[key].price === precioMasAltoDelDia);
-
-          console.log(`Tramo horario del precio alto: ${tramoPrecioMasAlto}`);  
-          
-          //PRECIO MEDIO DEL DÍA
-
-          const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
-          const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
-
-          console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
+            console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
+            console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
+            console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
         } else {
             console.log(`No hay datos disponibles para el tramo horario ${tramoHorario}`);
         }
@@ -77,8 +90,8 @@ const obtenerDatos = async () => {
         console.error('Error al obtener los datos de la API:', error);
     }
 };
-
-setInterval(obtenerDatos, 5 * 60 * 1000);
+// eliminamos setInterval porque ya no estamos haciendo la petición automáticamente
+/* setInterval(obtenerDatos, 5 * 60 * 1000); */ 
 obtenerDatos();
 
 function toggleElectrodomestico(nombre) {
