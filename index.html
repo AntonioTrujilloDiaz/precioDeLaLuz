@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/style_grafica.css">
     <script defer src="./js/index.js"></script>
-    <script src="./js/grafica.js"></script>
+    <script defer src="./JS/main.js"></script>
+    <script defer src="./JS/ecoTips.js"></script>
+    <script defer src="./js/grafica.js"></script>
     <!-- Usamos esta librería concreta que testeada funciona bien, ya que las últimas versiones de librería podrían dar conflicto con navegadores. -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@3"></script>
 
 </head>
 
@@ -44,55 +46,55 @@
           
             <section class="sectionIcons"> 
                 <ul class="icons">
-                    <li>
+                    <li id="cleaner-li"> <!-- Estos id´s los he añadido para darle funcionalidad al switch del box shadow en JS-->
                         <button onclick="toggleElectrodomestico('cleaner')">
                             <img id="cleaner-img" src="./IMAGES/ICONS/cleaner_bn_light_icon.png" alt="Imagen del Electrodoméstico 1">
                         </button>
                     </li>
                     
-                    <li>
+                    <li id="computer-li">
                         <button onclick="toggleElectrodomestico('computer')">
                             <img id="computer-img" src="./IMAGES/ICONS/computer_bn_light_icon.png" alt="Imagen del Electrodoméstico 2">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="dishwasher-li">
                         <button onclick="toggleElectrodomestico('dishwasher')">
                             <img id="dishwasher-img" src="./IMAGES/ICONS/dishwasher_bn_light_icon.png" alt="Imagen del Electrodoméstico 3">
                         </button>
                     </li>
 
-                    <li >
+                    <li id="fridge-li">
                         <button onclick="toggleElectrodomestico('fridge')">
                             <img id="fridge-img" src="./IMAGES/ICONS/fridge_bn_light_icon.png" alt="Imagen del Electrodoméstico 4">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="game_console-li">
                         <button onclick="toggleElectrodomestico('game_console')">
                             <img id="game_console-img" src="./IMAGES/ICONS/game_console_bn_light_icon.png" alt="Imagen del Electrodoméstico 5">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="iron-li">
                         <button onclick="toggleElectrodomestico('iron')">
                             <img id="iron-img" src="./IMAGES/ICONS/iron_bn_light_icon.png" alt="Imagen del Electrodoméstico 6">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="oven-li">
                         <button onclick="toggleElectrodomestico('oven')">
                             <img id="oven-img" src="./IMAGES/ICONS/oven_bn_light_icon.png" alt="Imagen del Electrodoméstico 7">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="tv-li">
                         <button onclick="toggleElectrodomestico('tv')">
                             <img id="tv-img" src="./IMAGES/ICONS/tv_bn_light_icon.png" alt="Imagen del Electrodoméstico 8">
                         </button>
                     </li>
 
-                    <li>
+                    <li id="washing_machine-li">
                         <button onclick="toggleElectrodomestico('washing_machine')">
                             <img id="washing_machine-img" src="./IMAGES/ICONS/washing_machine_bn_light_icon.png" alt="Imagen del Electrodoméstico 9">
                         </button>
@@ -118,8 +120,7 @@
         <div id="cajaEcoTips">
             <h4>¿Sabías que...?</h4> 
             <p id="tipCentrado"></p>
-        </div>
-    
+        </div>   
     </section>
 </div>
 
