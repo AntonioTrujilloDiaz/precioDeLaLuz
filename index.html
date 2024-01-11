@@ -44,15 +44,59 @@
           
             <section class="sectionIcons"> 
                 <ul class="icons">
-                    <li id="appli-1"><button type="button"><img src="./IMAGES/ICONS/cleaner_bn_light_icon.png" alt="Imagen del Electrodoméstico 1"></button></li>
-                    <li id="appli-2"><button type="button"><img src="./IMAGES/ICONS/computer_bn_light_icon.png" alt="Imagen del Electrodoméstico 2"></button></li>
-                    <li id="appli-3"><button type="button"><img src="./IMAGES/ICONS/dishwasher_bn_light_icon.png" alt="Imagen del Electrodoméstico 3"></button></li>
-                    <li id="appli-4"><button type="button"><img src="./IMAGES/ICONS/fridge_bn_light_icon.png" alt="Imagen del Electrodoméstico 4"></button></li>
-                    <li id="appli-5"><button type="button"><img src="./IMAGES/ICONS/game_console_bn_light_icon.png" alt="Imagen del Electrodoméstico 5"></button></li>
-                    <li id="appli-6"><button type="button"><img src="./IMAGES/ICONS/iron_bn_light_icon.png" alt="Imagen del Electrodoméstico 6"></button></li>
-                    <li id="appli-7"><button type="button"><img src="./IMAGES/ICONS/oven_bn_light_icon.png" alt="Imagen del Electrodoméstico 7"></button></li>
-                    <li id="appli-8"><button type="button"><img src="./IMAGES/ICONS/tv_bn_light_icon.png" alt="Imagen del Electrodoméstico 8"></button></li>
-                    <li id="appli-9"><button type="button"><img src="./IMAGES/ICONS/washing_machine_bn_light_icon.png" alt="Imagen del Electrodoméstico 9"></button></li>
+                    <li>
+                        <button onclick="toggleElectrodomestico('cleaner')">
+                            <img id="cleaner-img" src="./IMAGES/ICONS/cleaner_bn_light_icon.png" alt="Imagen del Electrodoméstico 1">
+                        </button>
+                    </li>
+                    
+                    <li>
+                        <button onclick="toggleElectrodomestico('computer')">
+                            <img id="computer-img" src="./IMAGES/ICONS/computer_bn_light_icon.png" alt="Imagen del Electrodoméstico 2">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('dishwasher')">
+                            <img id="dishwasher-img" src="./IMAGES/ICONS/dishwasher_bn_light_icon.png" alt="Imagen del Electrodoméstico 3">
+                        </button>
+                    </li>
+
+                    <li >
+                        <button onclick="toggleElectrodomestico('fridge')">
+                            <img id="fridge-img" src="./IMAGES/ICONS/fridge_bn_light_icon.png" alt="Imagen del Electrodoméstico 4">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('game_console')">
+                            <img id="game_console-img" src="./IMAGES/ICONS/game_console_bn_light_icon.png" alt="Imagen del Electrodoméstico 5">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('iron')">
+                            <img id="iron-img" src="./IMAGES/ICONS/iron_bn_light_icon.png" alt="Imagen del Electrodoméstico 6">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('oven')">
+                            <img id="oven-img" src="./IMAGES/ICONS/oven_bn_light_icon.png" alt="Imagen del Electrodoméstico 7">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('tv')">
+                            <img id="tv-img" src="./IMAGES/ICONS/tv_bn_light_icon.png" alt="Imagen del Electrodoméstico 8">
+                        </button>
+                    </li>
+
+                    <li>
+                        <button onclick="toggleElectrodomestico('washing_machine')">
+                            <img id="washing_machine-img" src="./IMAGES/ICONS/washing_machine_bn_light_icon.png" alt="Imagen del Electrodoméstico 9">
+                        </button>
+                    </li>
                 </ul>
             </section>
             <section class="consumo">
@@ -65,10 +109,10 @@
     </main>
     <section class="container2">
         <div>
-        <h4>Gráfica precio/h del día</h4>
-        <div id="miGraficaContainer">
+            <h4>Gráfica precio/h del día</h4>
+            <div id="miGraficaContainer">
             <canvas id="miGrafica" class="chart-container" width="500" height="400"></canvas>
-        </div>
+            </div>
         </div>
     
         <div id="cajaEcoTips">
