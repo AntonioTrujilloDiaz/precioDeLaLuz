@@ -70,6 +70,13 @@ const obtenerDatos = async () => {
             console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
             console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
             console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
+
+            document.getElementById('value_box1').textContent = `${precioMasBajoDelDia.toFixed(2)} €/MWh`;
+
+            document.getElementById('value_box2').textContent = `${precioActual.price.toFixed(2)} €/MWh`;
+            
+            document.getElementById('value_box3').textContent = `${precioMasAltoDelDia.toFixed(2)} €/MWh`;
+
         } else {
             console.log(`No hay datos disponibles para el tramo horario ${tramoHorario}`);
         }
