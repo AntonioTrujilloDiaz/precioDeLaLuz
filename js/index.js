@@ -42,6 +42,34 @@ const obtenerDatos = async () => {
         if (precioActual) {
             console.log(`Precio actual para el tramo horario ${tramoHorario}: ${precioActual.price} €/MWh`);
             calcularCosteElectrodomesticos();
+        // Ya he dejado implementado y funcionando tu JS de las Boxes, solo era cortar y pegar y cambiar dat.data por datos.data...Así llame a la variable del await para que se distinguiese del data del objeto de la API.
+          // PRECIO MÁS BAJO DEL DÍA
+          const preciosDelDia = Object.values(datos.data).map(info => info.price);
+          const precioMasBajoDelDia = Math.min(...preciosDelDia);
+  
+          console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
+  
+          // TRAMO CORRESPONDIENTE AL PRECIO MÁS BAJO DEL DÍA
+          const tramoPrecioMasBajo = Object.keys(datos.data).find(key => datos.data[key].price === precioMasBajoDelDia);
+
+          console.log(`Tramo horario del precio más bajo: ${tramoPrecioMasBajo}`);
+
+          //PRECIO MÁS ALTO DEL DÍA
+          const precioMasAltoDelDia = Math.max(...preciosDelDia);
+
+          console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
+
+          //TRAMO HORARIO DEL PRECIO MÁS ALTO DEL DÍA
+          const tramoPrecioMasAlto = Object.keys(datos.data).find(key => datos.data[key].price === precioMasAltoDelDia);
+
+          console.log(`Tramo horario del precio alto: ${tramoPrecioMasAlto}`);  
+          
+          //PRECIO MEDIO DEL DÍA
+
+          const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
+          const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
+
+          console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
         } else {
             console.log(`No hay datos disponibles para el tramo horario ${tramoHorario}`);
         }
@@ -83,109 +111,7 @@ function calcularCosteElectrodomesticos() {
     }
     document.getElementById('consumoTotal').textContent = `${costeTotal.toFixed(2)} €`;
 }
-
-/*        if (tramoHoraActual) {
-          console.log(`Tramo de hora actual según la API: ${tramoHoraActual.hour}`);
-          console.log(`Precio: ${tramoHoraActual.price} ${tramoHoraActual.units}`);
-          console.log(`¿Barata?: ${tramoHoraActual["is-cheap"]}`);
-  
-          // PRECIO MÁS BAJO DEL DÍA
-          const preciosDelDia = Object.values(data.data).map(info => info.price);
-          const precioMasBajoDelDia = Math.min(...preciosDelDia);
-  
-          console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
-  
-          // TRAMO CORRESPONDIENTE AL PRECIO MÁS BAJO DEL DÍA
-          const tramoPrecioMasBajo = Object.keys(data.data).find(key => data.data[key].price === precioMasBajoDelDia);
-
-          console.log(`Tramo horario del precio más bajo: ${tramoPrecioMasBajo}`);
-
-          //PRECIO MÁS ALTO DEL DÍA
-          const precioMasAltoDelDia = Math.max(...preciosDelDia);
-
-          console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
-
-          //TRAMO HORARIO DEL PRECIO MÁS ALTO DEL DÍA
-          const tramoPrecioMasAlto = Object.keys(data.data).find(key => data.data[key].price === precioMasAltoDelDia);
-
-          console.log(`Tramo horario del precio alto: ${tramoPrecioMasAlto}`);  
-          
-          //PRECIO MEDIO DEL DÍA
-
-          const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
-          const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
-
-          console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
-  
-        } else {
-          console.log("No hay datos disponibles para el tramo de hora actual.");
-        }
-      
-  //Funcion ecoConsejos
-
-  //Array con consejos. Lo suyo es enlazar un JSON con todos los EcoConsejos.
-  const ecoConsejos = [
-    "Apaga las luces cuando no las necesites.",
-    "Utiliza bombillas LED de bajo consumo.",
-    "Desenchufa los electrodomésticos cuando no los uses.",
-    "Usa la lavadora y el lavavajillas solo cuando estén llenos.",
-    "Aprovecha la luz natural tanto como sea posible.",
-    "Mantén el termostato a una temperatura razonable.",
-    "Usa cortinas y persianas para mantener la casa fresca en verano y cálida en invierno.",
-    "Cambia los filtros de aire regularmente.",
-    "Usa electrodomésticos eficientes.",
-    "Instala paneles solares para generar tu propia energía."
-  ];
-  
-  //Al parrafo del aside le inyectamos el contenido de la const ecoConsejos
-  let index = 0;
-  const aside = document.querySelector("aside>p");
-  aside.textContent = ecoConsejos[index];
-  
-  //Cada 2 min se muestra un consejo diferente
-  setInterval(() => {
-    index = (index + 1) % ecoConsejos.length;
-    aside.textContent = ecoConsejos[index];
-  }, 2 * 60 * 1000);
-  */
-
-/*        if (tramoHoraActual) {
-          console.log(`Tramo de hora actual según la API: ${tramoHoraActual.hour}`);
-          console.log(`Precio: ${tramoHoraActual.price} ${tramoHoraActual.units}`);
-          console.log(`¿Barata?: ${tramoHoraActual["is-cheap"]}`);
-  
-          // PRECIO MÁS BAJO DEL DÍA
-          const preciosDelDia = Object.values(data.data).map(info => info.price);
-          const precioMasBajoDelDia = Math.min(...preciosDelDia);
-  
-          console.log(`Precio más bajo del día: ${precioMasBajoDelDia} €/MWh`);
-  
-          // TRAMO CORRESPONDIENTE AL PRECIO MÁS BAJO DEL DÍA
-          const tramoPrecioMasBajo = Object.keys(data.data).find(key => data.data[key].price === precioMasBajoDelDia);
-
-          console.log(`Tramo horario del precio más bajo: ${tramoPrecioMasBajo}`);
-
-          //PRECIO MÁS ALTO DEL DÍA
-          const precioMasAltoDelDia = Math.max(...preciosDelDia);
-
-          console.log(`Precio más alto del día: ${precioMasAltoDelDia} €/MWh`);
-
-          //TRAMO HORARIO DEL PRECIO MÁS ALTO DEL DÍA
-          const tramoPrecioMasAlto = Object.keys(data.data).find(key => data.data[key].price === precioMasAltoDelDia);
-
-          console.log(`Tramo horario del precio alto: ${tramoPrecioMasAlto}`);  
-          
-          //PRECIO MEDIO DEL DÍA
-
-          const sumaDePrecios = preciosDelDia.reduce((acc, precio) => acc + precio, 0);
-          const precioMedioDelDia = sumaDePrecios / preciosDelDia.length;
-
-          console.log(`El Precio medio del día es: ${precioMedioDelDia} €/MWh`);
-  
-        } else {
-          console.log("No hay datos disponibles para el tramo de hora actual.");
-        }
-      
+/*      
   //Funcion ecoConsejos
 
   //Array con consejos. Lo suyo es enlazar un JSON con todos los EcoConsejos.
