@@ -35,7 +35,7 @@ function obtenerDatosAPI() {
         }],
       },
       options: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         scales: {
           x: {

@@ -176,18 +176,6 @@ h2 {
   justify-content: center;
 }
 
-/*.effectsIcons img:last-child {
-  display: none;
-}
-
-.effectsIcons:hover img:last-child {
-  display: block;
-}
-
-.effectsIcons:hover img:first-child {
-  display: none;
-}*/
-
 .h3-consumo{
   font-family: 'Dancing Script', cursive;
   font-size: 2em;
