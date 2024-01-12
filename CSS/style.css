@@ -31,7 +31,6 @@
     }
 
 
-
   /* Parte General de la Web*/
   /*Versión predeterminada: Mobile*/
 body {
@@ -59,13 +58,64 @@ header {
   margin-bottom: 10px;
 }
 
-.logoMode {
+/* CSS del switch Dark/Light*/
+nav {
   background-color: #f5a441b4;
-  display: flex;
-  justify-content: space-between;
   height: 60px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+ 
+.switch {
+  width: 60px;
+  height: 30px;
+  padding: 0 5px;
+  display:flex;
+  align-items: flex-end; 
+  position: relative;
+  border-radius: 100px;
+  border: solid 2px #333;
+  background-color: #132b41; 
+}
+
+.switch i {
+  font-size: 1rem;
+  color: #fdc21c;
+}
+
+.menu-options li:last-child::before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: solid thin #000;
+  left: 0;
+  right: unset;
+}
+
+.menu-options li:last-child.active::before {
+  right: 0;
+  left: unset;
+  border: solid thin #fff;
+}
+
+.menu-options li:last-child.active i:first-child {
+  color: #fff;
+}
+
+.menu-options li:last-child.active {
+  background-color: chocolate;
+  border: solid 2px #fff;
+}
+
+body.active {
+  background-image: url("../IMAGES/BG/LIGHT/RUTA DEL BG DARK");
+}
+/* meter ahi la ruta del BG, y a partir de aqui ir llamando a por ejemplo body.active h1 {}*/
 
 h1 {
   text-align: center;
@@ -105,30 +155,6 @@ h1 {
   /*flex: 1; /* Hago que los elementos ocupen el espacio disponible*/
   margin: 10px;
   aspect-ratio: 16/9; /* me asegura que cada elemento tenga la relación de aspecto 16/9 */
-}
-/*
-#btnDark {
-  font-family: 'Canter', sans-serif;
-  border-radius: 50px;
-  padding: 5px;
-  margin: 2%;
-}
-*/
-#btnLight, #btnDark {
-  font-family: 'Dancing Script', cursive;
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 5px 20px 0px 0px;
-    border: none;
-    background: none;
-
-}
-#btnDark>img{
-  min-width: 25px;
-  max-width: 45px;
-
 }
 
 /* Estilo del Main */

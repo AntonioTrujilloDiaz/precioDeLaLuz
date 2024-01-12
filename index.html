@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/style_grafica.css">
     <script defer src="./js/index.js"></script>
+    <script defer src="./js/dark.js"></script>
     <script defer src="./JS/ecoTips.js"></script>
     <script defer src="./js/grafica.js"></script>
     <!-- Usamos esta librería concreta que testeada funciona bien, ya que las últimas versiones de librería podrían dar conflicto con navegadores. -->
@@ -17,20 +18,19 @@
 
 <body>
     <header>
-        <section class="logoMode">
+        <nav>
             <img id="logo" src="" alt="Imagen logotipo de una bombilla respetuosa con el ecosistema">
-
-            <nav class="botonesModo">
-                <!-- <button id="btnLight">Light Mode</button> Solo necesitamos un botón por Modo -->
-                <button id="btnDark">
-                    <img src="./IMAGES/ICONS/luna.png" alt="icono luna">
-                </button>
-            </nav>
-        </section>
+            
+            <ul class="menu-options">
+                <li class="switch">
+                    <i class='bx bxs-sun' ></i>
+                    <i class='bx bxs-moon' ></i>
+                </li>
+            </ul>
+        </nav>
 
         <h1>Precio de la Luz</h1>
-        
-    
+            
         <section class="info-box">
             <div id="box1">
                 <h5>PRECIO MÁS BAJO DEL DÍA</h5>
