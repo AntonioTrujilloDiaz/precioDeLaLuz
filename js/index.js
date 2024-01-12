@@ -110,6 +110,7 @@ function toggleElectrodomestico(nombre) {
     calcularCosteElectrodomesticos();
     cambiarBackgroundElectrodomestico(nombre, electrodomesticosSeleccionados[nombre]);
     quitarBoxshadow(nombre, electrodomesticosSeleccionados[nombre]);
+    sonidosClick(electrodomesticosSeleccionados[nombre]);
 }
 
 function cambiarImagenElectrodomestico(nombre, seleccionado) {
@@ -155,5 +156,16 @@ function quitarBoxshadow(nombre, seleccionado) {
 
     } else {
         imgElement.style.boxShadow = "10px 10px 10px #603913c8";
+    }
+}
+
+const sonidosClick = (seleccionado) => {
+    const audioSeleccionar = new Audio("./AUDIO/sonidoSeleccionar.mp3");
+    const audioDeseleccionar = new Audio("./AUDIO/sonidoDeseleccionar.mp3");
+
+    if(seleccionado){
+        audioSeleccionar.play();
+    } else {
+        audioDeseleccionar.play();
     }
 }
