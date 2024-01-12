@@ -69,12 +69,12 @@ header {
 
 h1 {
   text-align: center;
-  color: #f5a341;
+  color: rgb(232, 152, 54);
   font-family:'RetroKing', cursive;
   font-size: 4.5em;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-shadow: 5px 5px 10px #603913;
+  text-shadow: 5px 5px 5px #603913;
 }
 
 #box1, #box2, #box3 {
