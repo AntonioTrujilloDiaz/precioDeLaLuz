@@ -122,14 +122,12 @@ h1 {
   color: rgb(232, 152, 54);
   font-family:'RetroKing', cursive;
   font-size: 4.5em;
-  margin-top: 10px;
-  margin-bottom: 10px;
   text-shadow: 5px 5px 5px #603913;
 }
 
 #box1, #box2, #box3 {
   color: #9e5700;
-  font-size: 3.5vw;
+  font-size: 5vw;
   padding: 0 50px;
 }
 
@@ -140,21 +138,21 @@ h1 {
 
 .info-box {
   color: var(--ocre);
-  font-family: 'Canter', sans-serif;
+  font-family: 'CanterBold', sans-serif;
   font-size: 1.5em;
   display: flex; /* Afecta a los hijos de .info-box */
-  justify-content: space-between;
-  margin: 40px;
+  flex-direction: column;
   text-align: center;
+  padding: 0px 50px;
+
 }
 
 .info-box div {
   background-color: #ffffffbe;
-  border-radius: 8%; 
   border: none;
-  /*flex: 1; /* Hago que los elementos ocupen el espacio disponible*/
   margin: 10px;
-  aspect-ratio: 16/9; /* me asegura que cada elemento tenga la relación de aspecto 16/9 */
+  border-radius: 0.30em; 
+
 }
 
 /* Estilo del Main */
@@ -267,12 +265,21 @@ h4 {
   flex-direction: column;
   }
 
+
+
+
 #tipCentrado{
+  background-image: url(../IMAGES/BG/ECOTIPS/anillaLibreta.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  border-radius: 20px;
+  opacity: 70%;
   text-align: center;
+  align-items: center;
   background-color: #ffffffbe;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-shadow: 10px 10px 10px #603913c8;
-  padding: 10px;
+  padding: 30px;
   width: 100%;
   height: 250px;
 }
@@ -306,6 +313,14 @@ h4 {
       background-color: #FFE1AC
       
   }
+  .info-box{
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  .chart-container{
+    width: 400px;
+    height: 500px; 
+  }
 }
 
 /*Diseñando para pantalla de escritorio*/
@@ -325,6 +340,7 @@ h4 {
 }
 main {
   width: 50%;
+  padding-left: 73.5px;
 }
 
   .container2 {
@@ -333,6 +349,7 @@ main {
     top: 0;
     margin: 0 ;
     padding: 0 5%;
+    width: 100%;
   }
   
   #miGraficaContainer{
@@ -341,8 +358,22 @@ main {
   
   #cajaEcoTips {
     width: 100%;
+    align-items: center;
   }
   .consumo {
     position: relative;
   }
+  #tipCentrado{
+    width: 40%;
+    background-size:contain;
+    background-repeat:repeat-x;
+  }
+}
+
+@media screen and (max-width:1800px){
+
+#tipCentrado{
+  background-size:cover;
+  
+}
 }
