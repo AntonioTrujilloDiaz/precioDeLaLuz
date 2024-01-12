@@ -6,6 +6,11 @@
 }
 
 @font-face {
+  font-family: 'CanterBold';
+  src: url('../FONTS/Canter/Canter/Commercial/TTF/Canter-Bold.ttf')format('truetype');
+}
+
+@font-face {
   font-family: 'RetroKing';
   src: url('../FONTS/Retroking/Retroking.ttf')format('truetype');
 }
@@ -22,7 +27,7 @@
     --ocre: #f5a341;
     --marron: #975b1e;
     --marronOscuro: #603913;
-    --turquesa: #9edaaf;
+    --turquesa: rgb(2, 200, 200);
     }
 
 
@@ -76,7 +81,11 @@ h1 {
   color: #9e5700;
   font-size: 3.5vw;
   padding: 0 50px;
+}
 
+#Dani_box1, #Antonio_box2, #Ruben_box3 {
+  font-family: 'CanterBold';
+  color: var(--turquesa);
 }
 
 .info-box {
@@ -209,7 +218,7 @@ h4 {
   border-radius: 10px;
   /* Agregadas estas dos líneas de abajo para el estilo del precio, Antonio si quieres darle estilo aparte llama a la <p>*/
   font-size: 3.5rem;
-  font-family: 'Canter';
+  font-family: 'CanterBold';
   }
 
 
