@@ -16,13 +16,18 @@ const electrodomesticos = {
 };
 
 function obtenerTramoHorario(hora) {
-    const tramoInicio = Math.floor(hora);
-    const tramoFin = (tramoInicio + 1) % 24;
+    try {
+        const tramoInicio = Math.floor(hora);
+        const tramoFin = (tramoInicio + 1) % 24;
 
-    const formatoInicio = tramoInicio.toString().padStart(2, '0');
-    const formatoFin = (tramoFin === 0 ? '24' : tramoFin.toString()).padStart(2, '0');
+        const formatoInicio = tramoInicio.toString().padStart(2, '0');
+        const formatoFin = (tramoFin === 0 ? '24' : tramoFin.toString()).padStart(2, '0');
 
-    return `${formatoInicio}-${formatoFin}`;
+        return `${formatoInicio}-${formatoFin}`;
+    } catch (error) {
+        console.log('Ha ocurrido un error al ejecutar la función obtenerTramoHorario: ', error.message);
+        alert('Ha ocurrido un error al ejecutar la función obtenerTramoHorario. Por favor, inténtalo de nuevo.');
+    }
 }
 
 // Función para verificar si han pasado 5 minutos desde un tiempo dado
@@ -127,14 +132,19 @@ function cambiarImagenElectrodomestico(nombre, seleccionado) {
 function calcularCosteElectrodomesticos() {
     let costeTotal = 0;
 
-    for (const nombre in electrodomesticosSeleccionados) {
-        if (electrodomesticosSeleccionados[nombre]) {
-            const potencia = electrodomesticos[nombre].potencia;
-            const costePorHora = (potencia / 1000) * (precioActual.price / 1000);
-            costeTotal += costePorHora;
+    try {
+        for (const nombre in electrodomesticosSeleccionados) {
+            if (electrodomesticosSeleccionados[nombre]) {
+                const potencia = electrodomesticos[nombre].potencia;
+                const costePorHora = (potencia / 1000) * (precioActual.price / 1000);
+                costeTotal += costePorHora;
+            }
         }
+    } catch (error) {
+        throw new Error(`Se ha producido un error: ${error.message}`);
+    } finally {
+        document.getElementById('consumoTotal').textContent = `${costeTotal.toFixed(2)} €/MWh`;
     }
-    document.getElementById('consumoTotal').textContent = `${costeTotal.toFixed(2)} €/MWh`;
 }
 
 function cambiarBackgroundElectrodomestico(nombre, seleccionado) {
