@@ -150,12 +150,14 @@ function cambiarBackgroundElectrodomestico(nombre, seleccionado) {
 
 function quitarBoxshadow(nombre, seleccionado) {
     const imgElement = document.getElementById(`${nombre}-li`);
-    
+
     if (seleccionado) {
         imgElement.style.boxShadow = 'none';
-
+    
     } else {
-        imgElement.style.boxShadow = "10px 10px 10px #603913c8";
+        const modoOscuro = document.body.classList.contains("active");
+        const sombraColor = modoOscuro ? 'rgb(227, 227, 227)' : '#603913c8';
+        imgElement.style.boxShadow = `10px 10px 10px ${sombraColor}`;
     }
 }
 
@@ -169,3 +171,13 @@ const sonidosClick = (seleccionado) => {
         audioDeseleccionar.play();
     }
 }
+
+const mode = document.querySelector(".switch");
+
+mode.addEventListener("click", ()=>{
+    mode.classList.toggle("active");
+    document.body.classList.toggle("active");
+    Object.keys(electrodomesticosSeleccionados).forEach(nombre => {
+        quitarBoxshadow(nombre, electrodomesticosSeleccionados[nombre]);
+    });
+});

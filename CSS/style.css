@@ -77,12 +77,17 @@ nav {
   position: relative;
   border-radius: 100px;
   border: solid 2px #333;
-  background-color: #132b41; 
+  background-image: url(../IMAGES/iconosModo/luna.png);
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position: right; 
 }
 
-.switch i {
-  font-size: 1rem;
-  color: #fdc21c;
+body.active .switch { 
+  background-image: url(../IMAGES/iconosModo/sol.png);
+  background-size: 2rem;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 .menu-options li:last-child::before {
@@ -95,12 +100,14 @@ nav {
   border: solid thin #000;
   left: 0;
   right: unset;
+  
 }
 
 .menu-options li:last-child.active::before {
   right: 0;
   left: unset;
-  border: solid thin #fff;
+  border: solid thin #000;
+  
 }
 
 .menu-options li:last-child.active i:first-child {
@@ -109,6 +116,11 @@ nav {
 
 .menu-options li:last-child.active {
   background-color: chocolate;
+  border: solid 2px #fff;
+}
+
+.menu-options li:last-child {
+  background-color: rgb(61, 55, 51);
   border: solid 2px #fff;
 }
 
