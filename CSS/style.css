@@ -128,6 +128,17 @@ body.active h3.h3-consumo {
   color: rgb(227, 227, 227)
 }
 
+body.active .icons li {
+  background: #e0d5d5; /* He añadido este color axuliar para el caso de que las imágenes no se carguen correctamente, a cambiar a gusto del diseño final */
+  display: flex;
+  justify-content: center; /* Centro horizontalmente */
+  align-items: center; /* Centro verticalmente */
+  aspect-ratio: 1 / 1; /* Me aseguro que cada elemento es cuadrado si no tiene una imagen insertada*/
+  min-width: 100px; /* Para que los elementos no se vuelvan demasiado pequeño */
+  border-radius: 10px;
+  overflow: hidden; /* Para que la imagen de cada aparato quede con los bordes de las cajas */
+  box-shadow: 10px 10px 10px #c7c7c7c8;
+ }
 
 h1 {
   text-align: center;
@@ -139,7 +150,7 @@ h1 {
 
 #box1, #box2, #box3 {
   color: #9e5700;
-  font-size: 5vw;
+  /* font-size: 5vw; */
   padding: 0 50px;
 }
 
@@ -294,6 +305,8 @@ h4 {
   padding: 30px;
   width: 100%;
   height: 250px;
+  display: flex;
+  font-size: 1.2em;
 }
 
 .estiloFooter{
@@ -329,6 +342,12 @@ h4 {
     justify-content: space-evenly;
     flex-direction: row;
   }
+
+  #tipCentrado{
+    display: flex;
+    font-size: 1.3em;
+
+  }
   .chart-container{
     width: 400px;
     height: 500px; 
@@ -355,6 +374,25 @@ main {
   padding-left: 73.5px;
 }
 
+#box1, #box2, #box3 {
+  height: auto;
+  /* font-size: 1.5em; */
+  /* color: #9e5700;
+  font-size: 5vw;
+  padding: 0 50px; */
+}
+
+h5 {
+  font-size: 2em;
+}
+
+#Dani_box1, #Antonio_box2, #Ruben_box3 {
+  /* font-family: 'CanterBold';
+  color: var(--turquesa); */
+  font-size: 2em;
+}
+
+
   .container2 {
     flex-direction: column-reverse;
     right: 0;
@@ -376,9 +414,11 @@ main {
     position: relative;
   }
   #tipCentrado{
-    width: 100%;
+    width: auto;
     background-size:contain;
     background-repeat:repeat-x;
+    display: flex;
+    font-size: 1.5em;
   }
 }
 
