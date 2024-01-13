@@ -65,7 +65,7 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
  
 .switch {
@@ -113,9 +113,21 @@ nav {
 }
 
 body.active {
-  background-image: url("../IMAGES/BG/LIGHT/RUTA DEL BG DARK");
+  background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Escritorio_1920x1080.jpg");
 }
 /* meter ahi la ruta del BG, y a partir de aqui ir llamando a por ejemplo body.active h1 {}*/
+body.active h2 {
+  color: rgb(227, 227, 227)
+}
+
+body.active h4 {
+  color: rgb(227, 227, 227)
+}
+
+body.active h3.h3-consumo {
+  color: rgb(227, 227, 227)
+}
+
 
 h1 {
   text-align: center;
@@ -269,7 +281,7 @@ h4 {
 
 
 #tipCentrado{
-  background-image: url(../IMAGES/BG/ECOTIPS/anillaLibreta.jpg);
+  background-image: url(../IMAGES/BG/ECOTIPS/paper_texture.jpg);
   background-size:cover;
   background-repeat:no-repeat;
   border-radius: 20px;
@@ -277,7 +289,7 @@ h4 {
   text-align: center;
   align-items: center;
   background-color: #ffffffbe;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px;
   box-shadow: 10px 10px 10px #603913c8;
   padding: 30px;
   width: 100%;
@@ -364,7 +376,7 @@ main {
     position: relative;
   }
   #tipCentrado{
-    width: 40%;
+    width: 100%;
     background-size:contain;
     background-repeat:repeat-x;
   }
