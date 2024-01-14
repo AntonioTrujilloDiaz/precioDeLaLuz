@@ -31,22 +31,24 @@
     }
 
 
-  /* Parte General de la Web*/
-  /*Versión predeterminada: Mobile*/
+/******************  PARTE GENERAL DE LA WEB  **********************/
+
+/*******************************************************************/
+/*****************  VERSIÓN PREDETERMINADA: Mobile  ****************/
+/*******************************************************************/
+
+
 body {
     
     background-image: url(../IMAGES/BG/LIGHT/movil.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    /*width: 100%;
-    height: 100%;*/
     background-position: center center;
     background-attachment: fixed;
     background-color: #FFE1AC;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    /*max-width: 1000px;*/
 }
   
   /* Estilo del Header */
@@ -62,7 +64,7 @@ header {
 nav {
   background-color: #f5a441b4;
   height: 60px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -124,10 +126,21 @@ body.active .switch {
   border: solid 2px #fff;
 }
 
+
+
+/*****************************************************/
+/*****************  ACTIVE MODO DARK *****************/
+/*****************************************************/
 body.active {
-  background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Escritorio_1920x1080.jpg");
+  background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Movil_720x1280.jpg");
 }
+
 /* meter ahi la ruta del BG, y a partir de aqui ir llamando a por ejemplo body.active h1 {}*/
+
+body.active h1 {
+  text-shadow: 5px 5px 5px rgb(227, 227, 227, 0.4);
+}
+
 body.active h2 {
   color: rgb(227, 227, 227)
 }
@@ -141,16 +154,27 @@ body.active h3.h3-consumo {
 }
 
 body.active .icons li {
-  background: #e0d5d5; /* He añadido este color axuliar para el caso de que las imágenes no se carguen correctamente, a cambiar a gusto del diseño final */
+  background: #e0d5d5; /*Auxiliar por si las imágenes no se cargan*/
   display: flex;
-  justify-content: center; /* Centro horizontalmente */
-  align-items: center; /* Centro verticalmente */
-  aspect-ratio: 1 / 1; /* Me aseguro que cada elemento es cuadrado si no tiene una imagen insertada*/
-  min-width: 100px; /* Para que los elementos no se vuelvan demasiado pequeño */
+  justify-content: center; 
+  align-items: center; 
+  min-width: 100px; /* Para que los elementos no se vuelvan demasiado pequeños */
   border-radius: 10px;
-  overflow: hidden; /* Para que la imagen de cada aparato quede con los bordes de las cajas */
   box-shadow: 10px 10px 10px #c7c7c7c8;
  }
+ 
+body.active .box-consumo {
+  box-shadow: 10px 10px 10px rgb(227, 227, 227, 0.5);
+}
+
+body.active #tipCentrado {
+  box-shadow: 10px 10px 10px rgb(227, 227, 227, 0.5);
+}
+
+/*************** FIN ACTIVE MODO DARK ****************/
+/*****************************************************/
+/*****************************************************/
+
 
 h1 {
   text-align: center;
@@ -162,7 +186,6 @@ h1 {
 
 #box1, #box2, #box3 {
   color: #9e5700;
-  /* font-size: 5vw; */
   padding: 0 50px;
 }
 
@@ -187,10 +210,9 @@ h1 {
   border: none;
   margin: 10px;
   border-radius: 0.30em; 
-
 }
 
-/* Estilo del Main */
+/*** ESTILO DEL MAIN ****/
 
 h2 {
   color: var(--marronOscuro);
@@ -216,7 +238,6 @@ h4 {
     /*text-shadow: 5px 1px 5px #60391361;*/
   }
 
-
 .icons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -231,12 +252,11 @@ h4 {
  }
  
  .icons li {
-  background: #e0d5d5; /* He añadido este color axuliar para el caso de que las imágenes no se carguen correctamente, a cambiar a gusto del diseño final */
+  background: #e0d5d5; /*Auxiliar por si las imágenes no se cargan*/
   display: flex;
-  justify-content: center; /* Centro horizontalmente */
-  align-items: center; /* Centro verticalmente */
-  aspect-ratio: 1 / 1; /* Me aseguro que cada elemento es cuadrado si no tiene una imagen insertada*/
-  min-width: 100px; /* Para que los elementos no se vuelvan demasiado pequeño */
+  justify-content: center;
+  align-items: center;
+  min-width: 100px; /* Determina el tamaño mínimo de los iconos*/
   border-radius: 10px;
   overflow: hidden; /* Para que la imagen de cada aparato quede con los bordes de las cajas */
   box-shadow: 10px 10px 10px #603913c8;
@@ -280,15 +300,13 @@ h4 {
   font-family: 'CanterBold';
   }
 
-
 .consumo{
   width: 100%;
 }
 
-
 .container2{
   display:flex;
-  gap: 5%;
+  gap: 5px;
   align-items:center;
   justify-content: space-evenly;
   flex-direction: column-reverse;
@@ -300,9 +318,6 @@ h4 {
   flex-direction: column;
   }
 
-
-
-
 #tipCentrado{
   background-image: url(../IMAGES/BG/ECOTIPS/paper_texture.jpg);
   background-size:cover;
@@ -312,7 +327,6 @@ h4 {
   text-align: center;
   align-items: center;
   background-color: #ffffffbe;
-  border-radius: 10px;
   box-shadow: 10px 10px 10px #603913c8;
   padding: 30px;
   width: 100%;
@@ -320,6 +334,7 @@ h4 {
   display: flex;
   font-size: 1.2em;
 }
+
 
 .estiloFooter{
   background-color: #f5a441b4;
@@ -335,40 +350,148 @@ h4 {
 
 
 
+/*******************************************************************/
+/*****************  VERSIÓN PREDETERMINADA: Tablet *****************/
+/*******************************************************************/
 
 
+/**** Estilos general para Tablet ****/
 
-/*Diseñando para pantalla Tablet*/
-
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   body{
       background-image: url(../IMAGES/BG/LIGHT/tablet.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
-      background-color: #FFE1AC
-      
+      background-color: #FFE1AC       
   }
+
+  body.active {
+    background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Tablet_1024x1366.jpg");
+  }
+
+  nav{
+    height: 40px;
+    width: auto;
+    padding-right: 10px;
+  }
+
+  h1 {
+    height: 100px;
+  }
+  
   .info-box{
     justify-content: space-evenly;
     flex-direction: row;
+    padding: 0px;
+  }
+  
+
+  #Dani_box1, #Antonio_box2, #Ruben_box3 {
+    font-family: 'CanterBold';
+    color: var(--turquesa);
+    text-shadow: 1px 1px 0px rgba(64, 116, 181, 1);
+  }
+
+ /*  h2{
+    font-size: 2.5em;
+  } */
+
+ /*  .h3-consumo{
+    font-size: 2.5em;
+  } */
+
+  .consumo {
+    margin-bottom: 20px;
+  }
+
+  .box-consumo {
+    text-align: center;
+    width: 80%;
+    height: 70px;
+    font-size: 3rem;
+  }
+
+  h4{
+    font-size: 2em;
+  }
+  .container2{
+    gap: 20px;
   }
 
   #tipCentrado{
     display: flex;
     font-size: 1.3em;
-
+    width: 80%;
+    height: 150px;
+    color: #603913;
   }
-  .chart-container{
-    width: 400px;
-    height: 500px; 
+
+  #miGraficaContainer{
+    width: 600px;
   }
 }
 
-/*Diseñando para pantalla de escritorio*/
 
-@media screen and (min-width: 1000px){
+/**** Estilos Orientación Horizontal en Tablet ****/
+
+@media screen and (min-width: 768px) and (orientation: landscape) {
+
+ /*  nav{
+    height: 40px;
+    width: auto;
+    padding-right: 10px;
+  } */
+
+  h5{
+    font-size: 1.8em;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .info-box{
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding: 0px;
+  }
+
+  #box1, #box2, #box3 {
+    color: #9e5700;
+    padding: 0px;
+  }
+
+  h2{
+    font-size: 2em;
+  }
+
+  h4{
+    font-size: 2em;
+  }
+
+  .h3-consumo{
+    font-size: 2em;
+  }
+
+  .container2 {
+    margin-right: 50px;
+
+}
+  #tipCentrado{
+    display: flex;
+    font-size: 0em;
+    width: 80%;
+    height: 150px;
+    color: #603913;
+  }
+
+}
+
+/*******************************************************************/
+/**************** VERSIÓN PREDETERMINADA: Escritorio ***************/
+/*******************************************************************/
+
+@media screen and (min-width: 1000px) {
   body{
       background-image: url(../IMAGES/BG/LIGHT/escritorio.jpg);
       background-repeat: no-repeat;
@@ -380,42 +503,39 @@ h4 {
   .divPrincipal{
     display: flex;
     justify-content: center;
-}
-main {
-  width: 50%;
-  padding-left: 73.5px;
-}
+  }
 
-#box1, #box2, #box3 {
-  height: auto;
-  /* font-size: 1.5em; */
-  /* color: #9e5700;
-  font-size: 5vw;
-  padding: 0 50px; */
+  body.active {
+    background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Escritorio_1920x1080.jpg");
+  }
+nav {
+  padding-right: 20px;
 }
+  main {
+    width: 50%;
+    padding-left: 73.5px;
+  }
 
-h5 {
-  font-size: 2em;
-}
+  #box1, #box2, #box3 {
+    height: auto;
+  }
 
-#Dani_box1, #Antonio_box2, #Ruben_box3 {
-  /* font-family: 'CanterBold';
-  color: var(--turquesa); */
-  font-size: 2em;
-}
+  #Dani_box1, #Antonio_box2, #Ruben_box3 {
+    font-size: 2em;
+  }
 
+  h2{
+  font-size: 2.2em;
+  }
 
   .container2 {
     flex-direction: column-reverse;
-    right: 0;
-    top: 0;
-    margin: 0 ;
-    padding: 0 5%;
     width: 100%;
   }
   
   #miGraficaContainer{
-    width: auto;
+    width: 600px;
+    height: 400px;
   }
   
   #cajaEcoTips {
@@ -427,17 +547,11 @@ h5 {
   }
   #tipCentrado{
     width: auto;
+    max-width: 600px;
+    margin-top: 10px;
     background-size:contain;
     background-repeat:repeat-x;
     display: flex;
     font-size: 1.5em;
   }
-}
-
-@media screen and (max-width:1800px){
-
-#tipCentrado{
-  background-size:cover;
-  
-}
 }
