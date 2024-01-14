@@ -16,16 +16,18 @@
 </head>
 
 <body>
-    <header>
-        <nav>          
-            <ul class="menu-options">
-                <li class="switch">
-                    <i class='bx bxs-sun'></i>
-                    <i class='bx bxs-moon'></i>
-                </li>
-            </ul>
-        </nav>
+    <nav>          
+        <ul class="menu-options">
+            <li class="switch">
+                <i class='bx bxs-sun'></i>
+                <i class='bx bxs-moon'></i>
+            </li>
+        </ul>
+    </nav>
 
+<div class="content-escritorio">
+    
+    <header>
         <h1>Precio de la Luz</h1>
             
         <section class="info-box">
@@ -43,92 +45,96 @@
             </div>
         </section>
     </header>
-<div class="divPrincipal">
-    <main>       
-        <div class="container1">    
+
+    <div class="divPrincipal">
+        <main>       
+            <div class="container1">    
             
-            <h2 id="">Selecciona uno o varios electrodomésticos</h2>
+                <h2 id="">Selecciona uno o varios electrodomésticos</h2>
           
-            <section class="sectionIcons"> 
-                <ul class="icons">
-                    <li id="cleaner-li"> <!-- Estos id´s los he añadido para darle funcionalidad al switch del box shadow en JS-->
-                        <button onclick="toggleElectrodomestico('cleaner')">
+                <section class="sectionIcons"> 
+                    <ul class="icons">
+                        <li id="cleaner-li"> <!-- Estos id´s los he añadido para darle funcionalidad al switch del box shadow en JS-->
+                            <button onclick="toggleElectrodomestico('cleaner')">
                             <img id="cleaner-img" src="./IMAGES/ICONS/cleaner_bn_light_icon.png" alt="Imagen del Electrodoméstico 1">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
                     
-                    <li id="computer-li">
-                        <button onclick="toggleElectrodomestico('computer')">
+                         <li id="computer-li">
+                            <button onclick="toggleElectrodomestico('computer')">
                             <img id="computer-img" src="./IMAGES/ICONS/computer_bn_light_icon.png" alt="Imagen del Electrodoméstico 2">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="dishwasher-li">
-                        <button onclick="toggleElectrodomestico('dishwasher')">
+                        <li id="dishwasher-li">
+                            <button onclick="toggleElectrodomestico('dishwasher')">
                             <img id="dishwasher-img" src="./IMAGES/ICONS/dishwasher_bn_light_icon.png" alt="Imagen del Electrodoméstico 3">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="fridge-li">
-                        <button onclick="toggleElectrodomestico('fridge')">
+                        <li id="fridge-li">
+                            <button onclick="toggleElectrodomestico('fridge')">
                             <img id="fridge-img" src="./IMAGES/ICONS/fridge_bn_light_icon.png" alt="Imagen del Electrodoméstico 4">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="game_console-li">
-                        <button onclick="toggleElectrodomestico('game_console')">
+                        <li id="game_console-li">
+                            <button onclick="toggleElectrodomestico('game_console')">
                             <img id="game_console-img" src="./IMAGES/ICONS/game_console_bn_light_icon.png" alt="Imagen del Electrodoméstico 5">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="iron-li">
-                        <button onclick="toggleElectrodomestico('iron')">
+                        <li id="iron-li">
+                            <button onclick="toggleElectrodomestico('iron')">
                             <img id="iron-img" src="./IMAGES/ICONS/iron_bn_light_icon.png" alt="Imagen del Electrodoméstico 6">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="oven-li">
-                        <button onclick="toggleElectrodomestico('oven')">
+                        <li id="oven-li">
+                            <button onclick="toggleElectrodomestico('oven')">
                             <img id="oven-img" src="./IMAGES/ICONS/oven_bn_light_icon.png" alt="Imagen del Electrodoméstico 7">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="tv-li">
-                        <button onclick="toggleElectrodomestico('tv')">
+                        <li id="tv-li">
+                            <button onclick="toggleElectrodomestico('tv')">
                             <img id="tv-img" src="./IMAGES/ICONS/tv_bn_light_icon.png" alt="Imagen del Electrodoméstico 8">
-                        </button>
-                    </li>
+                            </button>
+                        </li>
 
-                    <li id="washing_machine-li">
-                        <button onclick="toggleElectrodomestico('washing_machine')">
+                        <li id="washing_machine-li">
+                            <button onclick="toggleElectrodomestico('washing_machine')">
                             <img id="washing_machine-img" src="./IMAGES/ICONS/washing_machine_bn_light_icon.png" alt="Imagen del Electrodoméstico 9">
-                        </button>
-                    </li>
-                </ul>
-            </section>
-            <section class="consumo">
-                <h3 class="h3-consumo">Consumo total en la franja horaria actual:</h3>
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+                    <section class="consumo">
+                        <h3 class="h3-consumo">Consumo total en la franja horaria actual:</h3>
     
-                <div class="box-consumo"><p id="consumoTotal"></p>
-                </div>
-            </section>
-        </div>  
-    </main>
-    <section class="container2">
-        <div>
-            <h4>Gráfica precio/h del día</h4>
-            <div id="miGraficaContainer">
-            <canvas id="miGrafica" class="chart-container" width="600" height="400"></canvas>
-            </div>
-        </div>
-    
-        <div id="cajaEcoTips">
-            <h4>¿Sabías que...?</h4> 
-            <p id="tipCentrado"></p>
-        </div>   
-    </section>
-</div>
+                        <div class="box-consumo">
+                            <p id="consumoTotal"></p>
+                        </div>
+                    </section>
+            </div>  
+        </main>
 
+        <section class="container2">
+            <div>
+                <h4>Gráfica precio/h del día</h4>
+                <div id="miGraficaContainer">
+                    <canvas id="miGrafica" class="chart-container" width="500" height="300"></canvas>
+                </div>
+            </div>
+    
+            <div id="cajaEcoTips">
+                <h4>¿Sabías que...?</h4> 
+                <p id="tipCentrado"></p>
+            </div>   
+        </section>
+    </div>
+</div><!-- del content-escritorio -->
+    
     <footer>
         <div class="estiloFooter">
             <p>Proyecto de Hack a Boss en Programación Web, realizado por Rubén Muñoz, Daniel Moreno y Antonio Trujillo. 2024.</p>

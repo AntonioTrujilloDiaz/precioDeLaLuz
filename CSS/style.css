@@ -127,7 +127,6 @@ body.active .switch {
 }
 
 
-
 /*****************************************************/
 /*****************  ACTIVE MODO DARK *****************/
 /*****************************************************/
@@ -336,14 +335,14 @@ h4 {
   font-size: 1.2em;
 }
 
-
 .estiloFooter{
   background-color: #f5a441b4;
-  display: flex;
+  /* display: flex; */
   height: 60px;
   width: 100%;
   margin-top: 2%;
 }
+
 .estiloFooter>p{
   margin: auto;
   text-align: center;
@@ -428,13 +427,8 @@ h4 {
   #tipCentrado{
     display: flex;
     font-size: 1.3em;
-    width: 80%;
     height: 150px;
     color: #603913;
-  }
-
-  #miGraficaContainer{
-    width: 600px;
   }
 }
 
@@ -484,11 +478,14 @@ h4 {
 }
   #tipCentrado{
     display: flex;
-    font-size: 0em;
     width: 80%;
     height: 150px;
     color: #603913;
   }
+  #miGraficaContainer{
+    width: 500px;
+  }
+  
 
 }
 
@@ -503,17 +500,24 @@ h4 {
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
-      background-color: #FFE1AC
+      background-color: #FFE1AC;
+      margin: auto;
   }
   .divPrincipal{
     display: flex;
     justify-content: center;
   }
+ .content-escritorio {
+    max-width: 1500px;
+    margin: auto;
+  }
 
   body.active {
     background-image: url("../IMAGES/BG/DARK/BG_PrecioLuz_Dark_Escritorio_1920x1080.jpg");
   }
+  
 nav {
+  width: 100%;
   padding-right: 20px;
 }
   main {
@@ -533,14 +537,18 @@ nav {
   font-size: 2.2em;
   }
 
+  .h4-grafica{
+  max-width: 600px;
+  }
+
   .container2 {
     flex-direction: column-reverse;
     width: 100%;
   }
   
   #miGraficaContainer{
-    width: 600px;
-    height: 400px;
+    width: 500px;
+   /*  height: 500px; */
   }
   
   #cajaEcoTips {
@@ -550,13 +558,14 @@ nav {
   .consumo {
     position: relative;
   }
+
   #tipCentrado{
-    width: auto;
+   /*  width: auto; */
     max-width: 600px;
     margin-top: 10px;
     background-size:contain;
     background-repeat:repeat-x;
     display: flex;
-    font-size: 1.5em;
   }
+
 }
