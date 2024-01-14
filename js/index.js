@@ -162,8 +162,12 @@ function quitarBoxshadow(nombre, seleccionado) {
 }
 
 const sonidosClick = (seleccionado) => {
-    const audioSeleccionar = new Audio("./AUDIO/sonidoSeleccionar.mp3");
-    const audioDeseleccionar = new Audio("./AUDIO/sonidoDeseleccionar.mp3");
+    // Al principio introducimos los audios con el contructor, pero el primer click tiene DelayNode, asi que los añadimos al HTML para que los cargue al principio y la interactividad con el sonido sea lo más precisa posible.
+    // const audioSeleccionar = new Audio("./AUDIO/sonidoSeleccionar.mp3");
+    // const audioDeseleccionar = new Audio("./AUDIO/sonidoDeseleccionar.mp3");
+
+    const audioSeleccionar = document.getElementById("audioSeleccionar");
+    const audioDeseleccionar = document.getElementById("audioDeseleccionar");
 
     if(seleccionado){
         audioSeleccionar.play();
@@ -174,9 +178,21 @@ const sonidosClick = (seleccionado) => {
 
 const mode = document.querySelector(".switch");
 
+// Obtiene el modo actual almacenado en localStorage (si existe)
+const guardarMode = sessionStorage.getItem("mode");
+
+// Aplica el modo almacenado (si existe)
+if (guardarMode) {
+    mode.classList.toggle("active", JSON.parse(guardarMode));
+    document.body.classList.toggle("active", JSON.parse(guardarMode));
+}
+
 mode.addEventListener("click", ()=>{
-    mode.classList.toggle("active");
-    document.body.classList.toggle("active");
+    const activado = mode.classList.toggle("active");
+    document.body.classList.toggle("active", activado);
+
+sessionStorage.setItem("mode", JSON.stringify(activado));
+
     Object.keys(electrodomesticosSeleccionados).forEach(nombre => {
         quitarBoxshadow(nombre, electrodomesticosSeleccionados[nombre]);
     });
