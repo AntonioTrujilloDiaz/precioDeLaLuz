@@ -31,7 +31,7 @@ const hanPasado5Minutos = (tiempoPrevio) => {
     const diferenciaEnMilisegundos = tiempoActual - tiempoPrevio;
     const minutosTranscurridos = diferenciaEnMilisegundos / (1000 * 60);
 
-    return minutosTranscurridos >= 5;
+    return minutosTranscurridos > 5;
 };
 
 let datos = { data: {} }; // Inicializar datos con una estructura válida // Declarar datos fuera del bloque try
@@ -97,8 +97,8 @@ const obtenerDatos = async () => {
         console.error('Error al obtener los datos de la API:', error);
     }
 };
-// eliminamos setInterval porque ya no estamos haciendo la petición automáticamente
-/* setInterval(obtenerDatos, 5 * 60 * 1000); */ 
+
+setInterval(obtenerDatos, 5 * 60 * 1000); 
 obtenerDatos();
 
 /* 
