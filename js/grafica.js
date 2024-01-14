@@ -36,7 +36,7 @@ function obtenerDatosAPI() {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         scales: {
           x: {
             type: 'category',

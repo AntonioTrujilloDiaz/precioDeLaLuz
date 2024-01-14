@@ -546,11 +546,6 @@ nav {
     width: 100%;
   }
   
-  #miGraficaContainer{
-    width: 500px;
-   /*  height: 500px; */
-  }
-  
   #cajaEcoTips {
     width: 100%;
     align-items: center;
@@ -567,5 +562,11 @@ nav {
     background-repeat:repeat-x;
     display: flex;
   }
+  
+.chart-container{
+  width: 30vw;
+  height: 30vh;
+}
+
 
 }
