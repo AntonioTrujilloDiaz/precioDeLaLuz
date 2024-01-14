@@ -25,7 +25,6 @@ function obtenerDatosAPI() {
         labels: tramosHorarios,
         datasets: [{
           label: 'Precio por tramo horario',
-          /* tension: .5, */
           data: precios,
           borderColor: 'orange',
           borderWidth: 2,
